@@ -81,11 +81,11 @@ function addRiskItem(riskName, riskLevel, department) {
     
     // Set background color based on risk level
     if (riskLevel === 'Low') {
-      riskCard.style.backgroundColor = '#d4edda'; // Turquoise
+      riskCard.style.backgroundColor = '#d7ebf8'; // // Change to blue
     } else if (riskLevel === 'Medium') {
-      riskCard.style.backgroundColor = '#fff3cd'; // Orange
+      riskCard.style.backgroundColor = '#d7daf8'; // // Change to purple
     } else if (riskLevel === 'High') {
-      riskCard.style.backgroundColor = '#f8d7da'; // Red
+      riskCard.style.backgroundColor = '#ed969e'; // // Change to Red
     }
   
     riskCard.innerHTML = `
@@ -121,10 +121,10 @@ bulkUpdateBtn.addEventListener('click', () => {
     // Increase risk level
     if (currentLevel === 'Low') {
       currentLevel = 'Medium';
-      card.style.backgroundColor = '#fff3cd'; // Orange
+      card.style.backgroundColor = '#d7daf8'; // // Change to purple
     } else if (currentLevel === 'Medium') {
       currentLevel = 'High';
-      card.style.backgroundColor = '#f8d7da'; // Red
+      card.style.backgroundColor = '#ed969e'; // // Change to red
     }
 
  
@@ -141,11 +141,11 @@ function addRiskItem(riskName, riskLevel, department) {
   
     // Set background color based on risk level
     if (riskLevel === 'Low') {
-      riskCard.style.backgroundColor = '#d4edda'; // Turquoise
+      riskCard.style.backgroundColor = '#d7ebf8'; // // Change to blue
     } else if (riskLevel === 'Medium') {
-      riskCard.style.backgroundColor = '#fff3cd'; // Orange
+      riskCard.style.backgroundColor = '#d7daf8'; // // Change to purple
     } else if (riskLevel === 'High') {
-      riskCard.style.backgroundColor = '#f8d7da'; // Red
+      riskCard.style.backgroundColor = '#ed969e'; // // Change to red
     }
   
     riskCard.innerHTML = `
@@ -176,4 +176,5 @@ function addRiskItem(riskName, riskLevel, department) {
     // Append to dashboard
     riskDashboard.appendChild(riskCard);
   }
+  
   

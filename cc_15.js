@@ -133,3 +133,47 @@ bulkUpdateBtn.addEventListener('click', () => {
 });
 addRiskItem("Employee Retention", "Low", "HR");
 // Clicking "Increase Risk Levels" should change it to "Medium".
+
+//Task 6- Event Propagation Fix
+function addRiskItem(riskName, riskLevel, department) {
+    const riskCard = document.createElement('div');
+    riskCard.classList.add('riskCard');
+  
+    // Set background color based on risk level
+    if (riskLevel === 'Low') {
+      riskCard.style.backgroundColor = '#d4edda'; // Turquoise
+    } else if (riskLevel === 'Medium') {
+      riskCard.style.backgroundColor = '#fff3cd'; // Orange
+    } else if (riskLevel === 'High') {
+      riskCard.style.backgroundColor = '#f8d7da'; // Red
+    }
+  
+    riskCard.innerHTML = `
+      <strong>${riskName}</strong>
+      <p>Level: ${riskLevel}</p>
+      <p>Department: ${department}</p>
+    `;
+  
+    // Create Resolve button
+    const resolveButton = document.createElement('button');
+    resolveButton.textContent = 'Resolve';
+  
+    // Stop propagation when clicking the button
+    resolveButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent bubbling
+      riskDashboard.removeChild(riskCard);
+    });
+  
+    // Stop propagation for riskCard itself
+    riskCard.addEventListener('click', (event) => {
+      event.stopPropagation();
+      console.log(`Clicked on ${riskName}`);
+    });
+  
+    // Append Resolve button to riskCard
+    riskCard.appendChild(resolveButton);
+  
+    // Append to dashboard
+    riskDashboard.appendChild(riskCard);
+  }
+  

@@ -73,3 +73,36 @@ function addRiskItem(riskName, riskLevel, department) {
   // Test Case
   addRiskItem("Market Fluctuations", "High", "Finance");
   // Clicking "Resolve" should remove this risk from the dashboard.
+
+  //Task 4- Risk Categorization
+  function addRiskItem(riskName, riskLevel, department) {
+    const riskCard = document.createElement('div');
+    riskCard.classList.add('riskCard');
+    
+    // Set background color based on risk level
+    if (riskLevel === 'Low') {
+      riskCard.style.backgroundColor = '#d4edda'; // Turquoise
+    } else if (riskLevel === 'Medium') {
+      riskCard.style.backgroundColor = '#fff3cd'; // Orange
+    } else if (riskLevel === 'High') {
+      riskCard.style.backgroundColor = '#f8d7da'; // Red
+    }
+  
+    riskCard.innerHTML = `
+      <strong>${riskName}</strong>
+      <p>Level: ${riskLevel}</p>
+      <p>Department: ${department}</p>
+    `;
+  
+    // Create Resolve button
+    const resolveButton = document.createElement('button');
+    resolveButton.textContent = 'Resolve';
+    resolveButton.addEventListener('click', () => {
+      riskDashboard.removeChild(riskCard);
+    });
+  
+    riskCard.appendChild(resolveButton);
+  
+    riskDashboard.appendChild(riskCard);
+  }
+  addRiskItem("Cybersecurity Threat", "High", "IT");

@@ -106,3 +106,30 @@ function addRiskItem(riskName, riskLevel, department) {
     riskDashboard.appendChild(riskCard);
   }
   addRiskItem("Cybersecurity Threat", "High", "IT");
+  addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+
+//Task 5- Bulk Risk Updates 
+const bulkUpdateBtn = document.getElementById('bulkUpdateBtn');
+
+bulkUpdateBtn.addEventListener('click', () => {
+  const riskCards = document.querySelectorAll('.riskCard');
+
+  riskCards.forEach((card) => {
+    const levelElement = card.querySelector('p:nth-child(2)');
+    let currentLevel = levelElement.textContent.replace('Level: ', '');
+
+    // Increase risk level
+    if (currentLevel === 'Low') {
+      currentLevel = 'Medium';
+      card.style.backgroundColor = '#fff3cd'; // Orange
+    } else if (currentLevel === 'Medium') {
+      currentLevel = 'High';
+      card.style.backgroundColor = '#f8d7da'; // Red
+    }
+
+ 
+    levelElement.textContent = `Level: ${currentLevel}`;
+  });
+});
+addRiskItem("Employee Retention", "Low", "HR");
+// Clicking "Increase Risk Levels" should change it to "Medium".
